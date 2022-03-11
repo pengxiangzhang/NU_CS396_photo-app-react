@@ -8,6 +8,7 @@ const Post = ({ posts }) => {
   const [likeCount, setLikeCount] = useState(posts.like_count);
   const [comment, setComment] = useState("");
   const [post, setPost] = useState(posts);
+
   function handleSubmit(event) {
     event.preventDefault();
     const postData = {
