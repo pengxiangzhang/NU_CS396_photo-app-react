@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Comfortaa";
+}
+
+a:link,
+a:visited,
+a:active {
+  color: #0074b9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #005c93;
+  text-decoration: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #f3f3f3;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  height: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.userControlPannel {
+  justify-content: space-between;
+  float: right;
+}
+
+.userControlPannel a {
+  margin: 0px;
+  padding: 0px;
+}
+
+.invisibleLink {
+  color: black !important;
+}
+
+.page-wrap {
+  top: 60px;
+  margin: 60px auto 120px;
+  padding: 7px 0 0;
+  max-width: 990px;
+}
+
+.storyList {
+  box-sizing: border-box;
+  width: 650px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.storyList::-webkit-scrollbar {
+  display: none;
+}
+
+.storyList img {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  border: 3px solid #ccc;
+}
+
+.storyList p {
+  margin: 0px;
+  font-size: 9pt;
+  text-align: center;
+  color: #585858;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.story {
+  width: 70px;
+  padding: 5px;
+}
+
+.postList {
+  width: 650px;
+}
+
+.card {
+  box-sizing: border-box;
+  border: solid 1px #ccc;
+  height: auto;
+  padding: 0px 10px 10px 10px;
+  margin: 10px 0;
+  background-color: white;
+}
+
+.card img {
+  width: calc(100% + 20px);
+  height: auto;
+  margin-left: -10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.post_time {
+  color: rgb(124, 124, 124);
+}
+
+.make_comments_hint {
+  border: none;
+  margin-right: 5px;
+  border-width: 0px;
+  outline: none;
+  width: 80%;
+}
+
+.make_comments {
+  margin: 10px -10px -10px -10px;
+  border-top: 1px solid #ccc;
+}
+
+.make_comments_inside {
+  margin: 10px;
+}
+
+.likesCount {
+  font-weight: bold;
+}
+
+.comments p {
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+.commentSubmit {
+  float: right;
+  color: #0074b9;
+  border: 0px #000 solid;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.mainPanel {
+  width: 650px;
+  float: left;
+  display: inline;
+}
+
+.sidePanel {
+  position: fixed;
+  width: 380px;
+  float: left;
+  display: inline;
+  overflow-x: hidden;
+  padding-left: 30px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidePanel::-webkit-scrollbar {
+  display: none;
+}
+
+.currUser {
+  width: 370px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.currUser h2 {
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.currUser img {
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 80px;
+}
+
+.suggestedUsers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.suggestedUsers img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.suggestedUsers .username {
+  font-weight: bold;
+}
+
+.suggestedUsers,
+.suggestedUsers * {
+  padding: 5px;
+}
+
+.red {
+  color: #cf0c0c !important;
+}
+
+.suggest-for-you {
+  color: #585858;
+  margin-right: 40px;
+}
+
+.float-right {
+  float: right;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 1020px) {
+  .mainPanel {
+    width: 100%;
+  }
+  .storyList {
+    box-sizing: border-box;
+    width: calc(100% - 20px);
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+  }
+  .postList {
+    box-sizing: border-box;
+    width: calc(100% - 20px);
+    height: auto;
+    margin: 10px;
+  }
+  .sidePanel {
+    display: none;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  border-radius: 5px;
+  margin: 60px auto 120px;
+  max-width: 900px;
+  height: 80%;
+  position: relative;
+}
+
+.modalLeft {
+  width: 550px;
+  height: 100%;
+  min-width: 120px;
+  overflow: hidden;
+  float: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-right: 1px solid #ccc;
+}
+
+.commentDetail {
+  margin: 10px;
+  padding-bottom: 10px;
+}
+
+.modalRight {
+  margin-left: 550px;
+  height: 100%;
+  overflow: scroll;
+}
+
+.commentLeft {
+  width: 50px;
+  float: left;
+}
+
+.commentLeft img {
+  margin: 2px;
+  border-radius: 50%;
+}
+
+.commentRight {
+  margin-left: 10px;
+  width: 50px;
+  float: right;
+}
+.commentCenter {
+  margin: 0 50px 0 50px;
+}
+
+.modalUser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.modalUser h3 {
+  margin-left: 20px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  margin-block-end: 10px;
+}
+
+.modalUser img {
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 50px;
+}
+
+.closePostModal {
+  color: #575757;
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closePostModal:hover,
+.closePostModal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
