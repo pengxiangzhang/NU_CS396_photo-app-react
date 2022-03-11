@@ -33,13 +33,15 @@ const LikeButton = ({ posts, likeCount, setLikeCount }) => {
     <span id="likeico">
       <a
         className={
-          !likeID
-            ? "far" + " fa-heart fa-lg invisibleLink mainTab mainTab"
-            : "fas" + " fa-heart red fa-lg invisibleLink mainTab mainTab"
+          likeID
+            ? "fas fa-heart red fa-lg invisibleLink mainTab mainTab"
+            : "far fa-heart fa-lg invisibleLink mainTab mainTab"
         }
         onClick={likeUnlike}
         href="#nolink"
         style={{ marginRight: "10px" }}
+        aria-label={likeID ? "UnLike this post" : "Like this post"}
+        aria-checked={likeID ? "true" : "false"}
       ></a>
     </span>
   );

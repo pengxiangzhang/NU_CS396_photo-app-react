@@ -5,7 +5,7 @@ const Comments = ({ posts }) => {
   const [open, setOpen] = useState(false);
 
   const openPostModal = () => {
-    setOpen(true)
+    setOpen(true);
   };
 
   let comment_number = posts.comments.length;
@@ -26,10 +26,20 @@ const Comments = ({ posts }) => {
   } else if (comment_number >= 1) {
     return (
       <>
-        <a href="#nolink" className="mainTab" onClick={openPostModal} style={{ color: "#0074b9" }}>
+        <a
+          href="#nolink"
+          className="mainTab"
+          onClick={openPostModal}
+          style={{ color: "#0074b9" }}
+        >
           View all {comment_number} comments
         </a>
-        <DetailModal post={posts} open={open} setOpen={setOpen} key={posts.id} />
+        <DetailModal
+          post={posts}
+          open={open}
+          setOpen={setOpen}
+          key={posts.id}
+        />
         <p>
           <span className="username" style={{ marginRight: "10px" }}>
             {posts.comments[comment_number - 1].user.username}

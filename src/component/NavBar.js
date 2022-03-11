@@ -1,4 +1,4 @@
-const Nav = ({ user }) => {
+const NavBar = ({ user }) => {
   return (
     <nav>
       <h1>Photo App</h1>
@@ -11,4 +11,4 @@ const Nav = ({ user }) => {
     </nav>
   );
 };
-export default Nav;
+export default NavBar;

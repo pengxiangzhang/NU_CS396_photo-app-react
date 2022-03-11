@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 const DetailModal = ({ post, open, setOpen }) => {
   const openedModal = useRef(null);
@@ -12,7 +12,6 @@ const DetailModal = ({ post, open, setOpen }) => {
   };
   document.addEventListener("keyup", logKey);
   function logKey(e) {
-    console.log(e.keyCode);
     if (e.keyCode == 27) {
       closePostModal();
     }

@@ -1,7 +1,7 @@
 import { getHeaders } from "../utils.js";
 import { useState } from "react";
 
-const BookMark = ({ posts }) => {
+const BookmarkButton = ({ posts }) => {
   const [bookmarkID, setBookmarkID] = useState(posts.current_user_bookmark_id);
   const post_id = posts.id;
   function bookmarkUnbookmark(ev) {
@@ -35,15 +35,17 @@ const BookMark = ({ posts }) => {
     <span id="likeico">
       <a
         className={
-          !bookmarkID
-            ? "far" + " fa-bookmark fa-lg invisibleLink float-right mainTab"
-            : "fas" + " fa-bookmark fa-lg invisibleLink float-right mainTab"
+          bookmarkID
+            ? "fas fa-bookmark fa-lg invisibleLink float-right mainTab"
+            : "far fa-bookmark fa-lg invisibleLink float-right mainTab"
         }
         onClick={bookmarkUnbookmark}
         href="#nolink"
         style={{ marginRight: "10px" }}
+        aria-label={bookmarkID ? "UnBookmark this post" : "Bookmark this post"}
+        aria-checked={bookmarkID ? "true" : "false"}
       ></a>
     </span>
   );
 };
-export default BookMark;
+export default BookmarkButton;

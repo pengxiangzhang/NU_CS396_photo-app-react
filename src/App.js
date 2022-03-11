@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Nav from "./component/Nav.js";
+import NavBar from "./component/NavBar.js";
 import Suggestions from "./component/Suggestions.js";
-import Story from "./component/Story.js";
+import Story from "./component/Stories.js";
 import Posts from "./component/Posts.js";
 import { getHeaders } from "./utils.js";
-
+import Profile from "./component/Profile.js";
 const App = () => {
   const [user, setUser] = useState();
   const [suggestionList, setSuggestionList] = useState();
@@ -51,20 +51,22 @@ const App = () => {
       });
   }, []);
 
-  if (!user || !suggestionList||!storyList || !postList) {
+  if (!user || !suggestionList || !storyList || !postList) {
     return "";
   }
 
   return (
     <>
-      <Nav user={user} />
+      <NavBar user={user} />
       <div className="page-wrap">
         <div className="mainPanel">
-            <Story storyList={storyList} />
-            <Posts postList={postList} />
-            </div>
-
-        <Suggestions user={user} suggestionList={suggestionList} />
+          <Story storyList={storyList} />
+          <Posts postList={postList} />
+        </div>
+        <div className="sidePanel">
+          <Profile user={user} />
+          <Suggestions suggestionList={suggestionList} />
+        </div>
       </div>
     </>
   );

@@ -1,37 +1,12 @@
 import LikeButton from "./LikeButton";
-import BookMark from "./BookMark";
+import BookmarkButton from "./BookmarkButton";
 import { useState } from "react";
 import Comments from "./Comments";
-import { getHeaders } from "../utils.js";
-
+import AddComment from "./AddComment";
 const Post = ({ posts }) => {
   const [likeCount, setLikeCount] = useState(posts.like_count);
-  const [comment, setComment] = useState("");
   const [post, setPost] = useState(posts);
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const postData = {
-      post_id: posts.id,
-      text: comment,
-    };
-
-    fetch("/api/comments", {
-      method: "POST",
-      headers: getHeaders(),
-      body: JSON.stringify(postData),
-    }).then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      fetch(`/api/posts/${posts.id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setPost(data)
-        });
-    });
-    setComment("");
-    return false;
-  }
   return (
     <div className="card" post_id={post.id} key={post.id}>
       <div>
@@ -65,13 +40,13 @@ const Post = ({ posts }) => {
             href="#nolink"
           ></a>
           <span id="bookmarkico">
-            <BookMark posts={post} />
+            <BookmarkButton posts={post} />
           </span>
         </p>
         <p className="likesCount">{likeCount} likes</p>
         <span>
-          <span className="username">{post.user.username}</span>{" "}
-          {post.caption}...
+          <span className="username">{post.user.username}</span> {post.caption}
+          ...
           <a className="mainTab" href="#nolink">
             more
           </a>
@@ -81,28 +56,7 @@ const Post = ({ posts }) => {
           <Comments posts={post} />
         </div>
       </div>
-      <div className="make_comments">
-        <div className="make_comments_inside">
-          <form onSubmit={handleSubmit} id="form-${post.id}">
-            <i className="far fa-smile"></i>
-            <input
-              type="text"
-              name="comment"
-              className="make_comments_hint mainTab"
-              aria-label="Input your comment"
-              placeholder="Add a comment..."
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              required
-            />
-            <input
-              type="submit"
-              className="commentSubmit mainTab"
-              value="Post"
-            />
-          </form>
-        </div>
-      </div>
+      <AddComment posts={post} setPost={setPost} />
     </div>
   );
 };

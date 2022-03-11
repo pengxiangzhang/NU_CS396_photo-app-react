@@ -36,8 +36,8 @@ const FollowButton = ({ suggestion_id }) => {
       <a
         href="#nolink"
         className="float-right mainTab"
-        aria-label="Follow this user"
-        aria-checked="false"
+        aria-label={followID ? "UnFollow this user" : "Follow this user"}
+        aria-checked={followID ? "true" : "false"}
         onClick={followUnFollow}
       >
         {followID ? "unfollow" : "follow"}
