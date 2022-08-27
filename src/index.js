@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { getAccessTokenCookie, setAccessTokenCookie } from "./utils";
 
 function renderApp() {
-  ReactDOM.render(<App />, document.getElementById("root"));
-}
+  const container = document.getElementById("root");
+  const root = createRoot(container);
+  root.render(<App tab="App" />);}
 
 // this initializes the app after the access token is set.
 if (getAccessTokenCookie()) {
